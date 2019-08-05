@@ -1,0 +1,14 @@
+<h1>Score</h1>
+<%if @valid_grid == true && @english_word == true %>
+    <p><strong> Congratulations ! </strong>
+    <%= "#{params[:word]} is a valid word !" %> </p>
+<%elsif @valid_grid == true && @english_word == false %>
+    <p>Sorry but <strong><%= "#{params[:word]}" %> </strong>
+      does not seem to be a valid english word... </p>
+<%elsif @valid_grid == false && @english_word == true %>
+    <p>Sorry but <strong><%= "#{params[:word]}" %> </strong>
+      can't be built out of
+      <%= @letters.to_s.join(",") %> </p>
+<%else%>
+    <p>Sorry, try again ! </p>
+<%end%>

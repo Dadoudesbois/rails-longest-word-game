@@ -1,0 +1,14 @@
+<h1>New Game</h1>
+<ul>
+<% @letters.each do |letter| %>
+  <li><%= letter %></li>
+<% end %>
+</ul>
+<h2>What is the longuest word you can find ? </h2>
+<form action="/score" method="post">
+<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input class='form' type="text" name="word">
+  <input id="btd" type="submit" value= "Play">
+</form>
+<p>mot <%="#{params[:word]}" %> </p>
+<p> lettres de base <%= "#{@letters}" %> </p>
